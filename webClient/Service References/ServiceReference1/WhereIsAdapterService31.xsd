@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://clows/WhereIsAdapterService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" />
+  <xs:element name="getMapByCentre">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" minOccurs="0" name="getMapByCentre" nillable="true" type="q1:getMapByCentre" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="getMapByCentreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" minOccurs="0" name="getMapByCentreResult" nillable="true" type="q2:getMapByCentreResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="geocode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" minOccurs="0" name="geocode" nillable="true" type="q3:geocode" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="geocodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" minOccurs="0" name="geocodeResult" nillable="true" type="q4:ArrayOfsoapGeocodeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/HelpPage/HelpPage.css">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Web.config">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/_ViewStart.cshtml">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>03/25/2015 10:19:17</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>03/25/2015 10:19:26</publishTime>
+    </File>
+    <File Include="bin/Moq.dll">
+      <publishTime>03/30/2015 10:58:27</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/RestSharp.dll">
+      <publishTime>03/25/2015 12:27:24</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>03/25/2015 10:19:26</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.WebRequest.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.Serialization.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.ServiceModel.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>03/25/2015 10:19:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.OData.dll">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Tracing.dll">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>03/25/2015 10:19:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>03/25/2015 10:19:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/System.Web.Providers.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>09/26/2012 02:16:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>03/25/2015 10:19:30</publishTime>
+    </File>
+    <File Include="bin/WhereIsProxy.dll">
+      <publishTime>04/23/2015 15:51:21</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/25/2015 10:19:28</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/25/2015 10:19:29</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>03/25/2015 10:19:27</publishTime>
+    </File>
+    <File Include="ClassDiagram1.cd">
+      <publishTime>03/27/2015 10:21:06</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_222222_256x240.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_454545_256x240.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_888888_256x240.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery-ui.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.accordion.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.all.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.autocomplete.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.base.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.button.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.core.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.datepicker.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.dialog.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.progressbar.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.resizable.css">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.selectable.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.slider.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.tabs.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/jquery.ui.theme.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_222222_256x240.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_454545_256x240.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_888888_256x240.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery-ui.min.css">
+      <publishTime>03/25/2015 10:19:22</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.accordion.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.autocomplete.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.button.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.core.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.datepicker.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.dialog.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.progressbar.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.resizable.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.selectable.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.slider.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.tabs.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
+      <publishTime>03/25/2015 10:19:23</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/accent.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/bullet.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/heroAccent.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList0.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList1.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList2.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList3.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList4.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList5.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList6.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList7.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList8.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Images/orderedList9.png">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/30/2015 10:58:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.js">
+      <publishTime>03/25/2015 10:19:20</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.min.js">
+      <publishTime>03/25/2015 10:19:20</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.js">
+      <publishTime>03/25/2015 10:19:22</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.24.min.js">
+      <publishTime>03/25/2015 10:19:22</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.js">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>03/25/2015 10:19:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>03/25/2015 10:19:21</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.debug.js">
+      <publishTime>03/25/2015 10:19:31</publishTime>
+    </File>
+    <File Include="Scripts/knockout-2.2.0.js">
+      <publishTime>03/25/2015 10:19:31</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>03/25/2015 10:19:24</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>03/25/2015 10:19:25</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/configuration.svcinfo">
+      <publishTime>03/25/2015 10:33:41</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/configuration91.svcinfo">
+      <publishTime>03/25/2015 10:33:41</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/Reference.svcmap">
+      <publishTime>03/25/2015 10:33:41</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/SoapService.wsdl">
+      <publishTime>03/25/2015 10:33:41</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.batchGeocodeResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.batchReverseGeocodeResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.geocodeByIdResponse.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.geocodeIntersectionResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.geocodeResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getIconResponse.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getIconResponse1.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapByBoundsResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapByBoundsResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapByCentreResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapByCentreResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapImageURLByBoundsResponse.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapImageURLByBoundsResponse1.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapImageURLByCentreResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getMapImageURLByCentreResponse1.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getRouteDetailsResponse.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForCentreResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForCentreResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForPointsResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForPointsResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForRadiusResponse.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.getViewportForRadiusResponse1.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.mapImageURLByBoundsResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.mapImageURLByBoundsResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.mapImageURLByCentreResponse.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.mapImageURLByCentreResponse1.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.poiSearchResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.poiSearchResponse1.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.rankPointsResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.reverseGeocodeByFeatureResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.reverseGeocodeIntersectionResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.reverseGeocodeResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.routeHandleResponse.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.routeHandleResponse1.datasource">
+      <publishTime>03/25/2015 10:33:47</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.routeResponse.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapBatchGeocodedAddress.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapBatchGeocodeResult.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapGeocodedAddress.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapGeocodedByFeatureAddress.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapGeocodeResult.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapPoint.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapRankedPoint.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.soapRoute.datasource">
+      <publishTime>03/25/2015 10:33:44</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.statusResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.statusResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.versionResponse.datasource">
+      <publishTime>03/25/2015 10:33:45</publishTime>
+    </File>
+    <File Include="Service References/WhereIsSchemaReference/WhereIsProxy.WhereIsSchemaReference.versionResponse1.datasource">
+      <publishTime>03/25/2015 10:33:46</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>03/25/2015 10:19:16</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/23/2015 15:51:21</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

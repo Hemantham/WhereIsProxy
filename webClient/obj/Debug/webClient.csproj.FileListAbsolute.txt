@@ -1,0 +1,9 @@
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\bin\Debug\webClient.exe.config
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\bin\Debug\webClient.exe
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\bin\Debug\webClient.pdb
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\obj\Debug\webClient.csprojResolveAssemblyReference.cache
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\obj\Debug\webClient.exe
+c:\users\hemantham\documents\visual studio 2012\Projects\webClient\webClient\obj\Debug\webClient.pdb
+C:\Devel\webClient\webClient\bin\Debug\webClient.exe.config
+C:\Devel\webClient\webClient\obj\Debug\webClient.exe
+C:\Devel\webClient\webClient\obj\Debug\webClient.pdb

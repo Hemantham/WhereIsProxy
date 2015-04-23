@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IG.CLP.BusinessLogic.com.whereis.ems" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="getMapByCentre">
+    <xs:sequence>
+      <xs:element name="authorisationField" nillable="true" type="tns:soapAuth" />
+      <xs:element name="centreField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="heightField" type="xs:int" />
+      <xs:element name="imageFormatField" nillable="true" type="xs:string" />
+      <xs:element name="layerField" nillable="true" type="xs:string" />
+      <xs:element name="markersField" nillable="true" type="tns:ArrayOfsoapMarker" />
+      <xs:element name="routesField" nillable="true" type="tns:ArrayOfsoapRoute" />
+      <xs:element name="widthField" type="xs:int" />
+      <xs:element name="zoomField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getMapByCentre" nillable="true" type="tns:getMapByCentre" />
+  <xs:complexType name="soapAuth">
+    <xs:sequence>
+      <xs:element name="passwordField" nillable="true" type="xs:string" />
+      <xs:element name="tokenField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapAuth" nillable="true" type="tns:soapAuth" />
+  <xs:complexType name="soapPoint">
+    <xs:sequence>
+      <xs:element name="latitudeField" type="xs:double" />
+      <xs:element name="longitudeField" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapPoint" nillable="true" type="tns:soapPoint" />
+  <xs:complexType name="ArrayOfsoapMarker">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="soapMarker" nillable="true" type="tns:soapMarker" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsoapMarker" nillable="true" type="tns:ArrayOfsoapMarker" />
+  <xs:complexType name="soapMarker">
+    <xs:sequence>
+      <xs:element name="builtInField" nillable="true" type="tns:soapIcon" />
+      <xs:element name="heightField" type="xs:int" />
+      <xs:element name="offsetXField" type="xs:int" />
+      <xs:element name="offsetYField" type="xs:int" />
+      <xs:element name="pointField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="userDefinedField" nillable="true" type="xs:string" />
+      <xs:element name="widthField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapMarker" nillable="true" type="tns:soapMarker" />
+  <xs:complexType name="soapIcon">
+    <xs:sequence>
+      <xs:element name="colour1Field" nillable="true" type="xs:string" />
+      <xs:element name="colour2Field" nillable="true" type="xs:string" />
+      <xs:element name="colourField" nillable="true" type="xs:string" />
+      <xs:element name="hoverColour1Field" nillable="true" type="xs:string" />
+      <xs:element name="hoverColour2Field" nillable="true" type="xs:string" />
+      <xs:element name="rolloverColour1Field" nillable="true" type="xs:string" />
+      <xs:element name="rolloverColour2Field" nillable="true" type="xs:string" />
+      <xs:element name="textColourField" nillable="true" type="xs:string" />
+      <xs:element name="textField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" type="tns:soapIconType" />
+      <xs:element name="typeFieldSpecified" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapIcon" nillable="true" type="tns:soapIcon" />
+  <xs:simpleType name="soapIconType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="babushka" />
+      <xs:enumeration value="multi" />
+      <xs:enumeration value="poi" />
+      <xs:enumeration value="standard" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="soapIconType" nillable="true" type="tns:soapIconType" />
+  <xs:complexType name="ArrayOfsoapRoute">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="soapRoute" nillable="true" type="tns:soapRoute" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsoapRoute" nillable="true" type="tns:ArrayOfsoapRoute" />
+  <xs:complexType name="soapRoute">
+    <xs:sequence>
+      <xs:element name="distanceField" type="xs:float" />
+      <xs:element name="durationField" type="xs:int" />
+      <xs:element name="geometryField" nillable="true" type="tns:ArrayOfsoapPoint" />
+      <xs:element name="segmentsField" nillable="true" type="tns:ArrayOfsoapRouteSegment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapRoute" nillable="true" type="tns:soapRoute" />
+  <xs:complexType name="ArrayOfsoapPoint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="soapPoint" nillable="true" type="tns:soapPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsoapPoint" nillable="true" type="tns:ArrayOfsoapPoint" />
+  <xs:complexType name="ArrayOfsoapRouteSegment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="soapRouteSegment" nillable="true" type="tns:soapRouteSegment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsoapRouteSegment" nillable="true" type="tns:ArrayOfsoapRouteSegment" />
+  <xs:complexType name="soapRouteSegment">
+    <xs:sequence>
+      <xs:element name="centreField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="metresField" type="xs:float" />
+      <xs:element name="routeDirectionField" nillable="true" type="xs:string" />
+      <xs:element name="textInstructionField" nillable="true" type="xs:string" />
+      <xs:element name="timeField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapRouteSegment" nillable="true" type="tns:soapRouteSegment" />
+  <xs:complexType name="getMapByCentreResponse">
+    <xs:sequence>
+      <xs:element name="returnField" nillable="true" type="tns:soapMapArea" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="getMapByCentreResponse" nillable="true" type="tns:getMapByCentreResponse" />
+  <xs:complexType name="soapMapArea">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:soapMap">
+        <xs:sequence>
+          <xs:element name="encodedGraphicField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="soapMapArea" nillable="true" type="tns:soapMapArea" />
+  <xs:complexType name="soapMap">
+    <xs:sequence>
+      <xs:element name="boundingBoxField" nillable="true" type="tns:soapBox" />
+      <xs:element name="zoomField" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapMap" nillable="true" type="tns:soapMap" />
+  <xs:complexType name="soapBox">
+    <xs:sequence>
+      <xs:element name="botRightField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="topLeftField" nillable="true" type="tns:soapPoint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapBox" nillable="true" type="tns:soapBox" />
+  <xs:complexType name="geocode">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:soapAddress" />
+      <xs:element name="authorisationField" nillable="true" type="tns:soapAuth" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="geocode" nillable="true" type="tns:geocode" />
+  <xs:complexType name="soapAddress">
+    <xs:sequence>
+      <xs:element name="stateField" nillable="true" type="xs:string" />
+      <xs:element name="streetField" nillable="true" type="xs:string" />
+      <xs:element name="suburbField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapAddress" nillable="true" type="tns:soapAddress" />
+  <xs:complexType name="ArrayOfsoapGeocodeResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="soapGeocodeResult" nillable="true" type="tns:soapGeocodeResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfsoapGeocodeResult" nillable="true" type="tns:ArrayOfsoapGeocodeResult" />
+  <xs:complexType name="soapGeocodeResult">
+    <xs:sequence>
+      <xs:element name="accuracyField" type="xs:float" />
+      <xs:element name="featureField" type="tns:feature" />
+      <xs:element name="featureFieldSpecified" type="xs:boolean" />
+      <xs:element name="geocodedAddressField" nillable="true" type="tns:soapGeocodedAddress" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapGeocodeResult" nillable="true" type="tns:soapGeocodeResult" />
+  <xs:simpleType name="feature">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="placename" />
+      <xs:enumeration value="road" />
+      <xs:enumeration value="property" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="feature" nillable="true" type="tns:feature" />
+  <xs:complexType name="soapGeocodedAddress">
+    <xs:sequence>
+      <xs:element name="coordinatesField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="intersectingField" nillable="true" type="tns:soapStreet" />
+      <xs:element name="numberField" nillable="true" type="xs:string" />
+      <xs:element name="postcodeField" nillable="true" type="xs:string" />
+      <xs:element name="stateField" nillable="true" type="xs:string" />
+      <xs:element name="streetCoordinatesField" nillable="true" type="tns:soapPoint" />
+      <xs:element name="streetField" nillable="true" type="tns:soapStreet" />
+      <xs:element name="suburbField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapGeocodedAddress" nillable="true" type="tns:soapGeocodedAddress" />
+  <xs:complexType name="soapStreet">
+    <xs:sequence>
+      <xs:element name="directionalPrefixField" nillable="true" type="xs:string" />
+      <xs:element name="directionalSuffixField" nillable="true" type="xs:string" />
+      <xs:element name="fullNameField" nillable="true" type="xs:string" />
+      <xs:element name="nameField" nillable="true" type="xs:string" />
+      <xs:element name="typeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="soapStreet" nillable="true" type="tns:soapStreet" />
+</xs:schema>

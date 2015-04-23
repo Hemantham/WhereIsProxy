@@ -1,0 +1,5 @@
+C:\Users\Hemantham\Documents\Visual Studio 2012\Projects\webClient\WcfService1\bin\WcfService1.dll
+C:\Users\Hemantham\Documents\Visual Studio 2012\Projects\webClient\WcfService1\bin\WcfService1.pdb
+C:\Users\Hemantham\Documents\Visual Studio 2012\Projects\webClient\WcfService1\obj\Debug\WcfService1.csprojResolveAssemblyReference.cache
+C:\Users\Hemantham\Documents\Visual Studio 2012\Projects\webClient\WcfService1\obj\Debug\WcfService1.dll
+C:\Users\Hemantham\Documents\Visual Studio 2012\Projects\webClient\WcfService1\obj\Debug\WcfService1.pdb

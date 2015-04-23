@@ -1,0 +1,1137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ems.whereis.com/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" name="SoapService" targetNamespace="http://ems.whereis.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns="http://jaxb.dev.java.net/array" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://jaxb.dev.java.net/array" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="stringArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ems.whereis.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="soapAuth">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" name="token" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapBox">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="botRight" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="topLeft" type="tns:soapPoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapPoint">
+        <xs:sequence>
+          <xs:element name="latitude" type="xs:double" />
+          <xs:element name="longitude" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapPoiResultSet">
+        <xs:sequence>
+          <xs:element name="offset" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="pois" nillable="true" type="tns:soapPoi" />
+          <xs:element name="total" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapPoi">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="geocodedAddress" type="tns:soapGeocodedAddress" />
+          <xs:element minOccurs="0" name="id" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodedAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="coordinates" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="intersecting" type="tns:soapStreet" />
+          <xs:element minOccurs="0" name="number" type="xs:string" />
+          <xs:element minOccurs="0" name="postcode" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="tns:soapStreet" />
+          <xs:element minOccurs="0" name="streetCoordinates" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="suburb" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapStreet">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="directionalPrefix" type="xs:string" />
+          <xs:element minOccurs="0" name="directionalSuffix" type="xs:string" />
+          <xs:element minOccurs="0" name="fullName" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+          <xs:element minOccurs="0" name="street" type="xs:string" />
+          <xs:element minOccurs="0" name="suburb" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapBatchGeocodeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="error" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="geocodeResults" nillable="true" type="tns:soapGeocodeResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodeResult">
+        <xs:sequence>
+          <xs:element name="accuracy" type="xs:float" />
+          <xs:element minOccurs="0" name="feature" type="tns:feature" />
+          <xs:element minOccurs="0" name="geocodedAddress" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapMarker">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="builtIn" type="tns:soapIcon" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element name="offsetX" type="xs:int" />
+          <xs:element name="offsetY" type="xs:int" />
+          <xs:element minOccurs="0" name="point" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="userDefined" type="xs:string" />
+          <xs:element name="width" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapIcon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="colour" type="xs:string" />
+          <xs:element minOccurs="0" name="colour1" type="xs:string" />
+          <xs:element minOccurs="0" name="colour2" type="xs:string" />
+          <xs:element minOccurs="0" name="hoverColour1" type="xs:string" />
+          <xs:element minOccurs="0" name="hoverColour2" type="xs:string" />
+          <xs:element minOccurs="0" name="rolloverColour1" type="xs:string" />
+          <xs:element minOccurs="0" name="rolloverColour2" type="xs:string" />
+          <xs:element minOccurs="0" name="text" type="xs:string" />
+          <xs:element minOccurs="0" name="textColour" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="tns:soapIconType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapRoute">
+        <xs:sequence>
+          <xs:element name="distance" type="xs:float" />
+          <xs:element name="duration" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="geometry" nillable="true" type="tns:soapPoint" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="segments" nillable="true" type="tns:soapRouteSegment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapRouteSegment">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="metres" type="xs:float" />
+          <xs:element minOccurs="0" name="routeDirection" type="xs:string" />
+          <xs:element minOccurs="0" name="textInstruction" type="xs:string" />
+          <xs:element name="time" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapMap" abstract="true">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="boundingBox" type="tns:soapBox" />
+          <xs:element name="zoom" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapMapImageURL">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:soapMap">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="URL" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="soapMapArea">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:soapMap">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="encodedGraphic" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="soapRankedPoint">
+        <xs:sequence>
+          <xs:element name="distanceMetres" type="xs:int" />
+          <xs:element minOccurs="0" name="point" type="tns:soapPoint" />
+          <xs:element name="rank" type="xs:int" />
+          <xs:element name="rankMethod" type="xs:int" />
+          <xs:element name="travelTimeSeconds" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapViewport">
+        <xs:sequence>
+          <xs:element name="boundingBox" type="tns:soapBox" />
+          <xs:element name="centre" type="tns:soapPoint" />
+          <xs:element name="resolution" type="xs:double" />
+          <xs:element name="x-distance" type="xs:double" />
+          <xs:element name="y-distance" type="xs:double" />
+          <xs:element name="zoom" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapBatchGeocodedAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="error" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="geocodedAddresses" nillable="true" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapRouteType">
+        <xs:sequence>
+          <xs:element name="fastest" type="xs:boolean" />
+          <xs:element name="tolls" type="xs:boolean" />
+          <xs:element minOccurs="0" name="transport" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapRouteHandle">
+        <xs:sequence>
+          <xs:element name="identifier" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapFeaturePoint">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="features" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="maxResults" type="xs:int" />
+          <xs:element minOccurs="0" name="point" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="radius" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapReverseGeocodedByFeatureResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="soapFeatureAddress" nillable="true" type="tns:soapGeocodedByFeatureAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodedByFeatureAddress">
+        <xs:sequence>
+          <xs:element name="distance" type="xs:int" />
+          <xs:element minOccurs="0" name="feature" type="xs:string" />
+          <xs:element minOccurs="0" name="soapGeocodedAddress" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="feature">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="placename" />
+          <xs:enumeration value="road" />
+          <xs:enumeration value="property" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="soapIconType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="babushka" />
+          <xs:enumeration value="multi" />
+          <xs:enumeration value="poi" />
+          <xs:enumeration value="standard" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="soapRouteDetailFilter">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ALL" />
+          <xs:enumeration value="GEOMETRY" />
+          <xs:enumeration value="SEGMENTS" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="soapPoiArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapPoi" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodeResultArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapGeocodeResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapPointArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapPoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapRouteSegmentArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapRouteSegment" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodedAddressArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="soapGeocodedByFeatureAddressArray" final="#all">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="item" nillable="true" type="tns:soapGeocodedByFeatureAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="poiSearch" type="tns:poiSearch" />
+      <xs:complexType name="poiSearch">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="boundingBox" type="tns:soapBox" />
+          <xs:element minOccurs="0" name="keyword" type="xs:string" />
+          <xs:element name="offset" type="xs:int" />
+          <xs:element name="size" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="poiSearchResponse" type="tns:poiSearchResponse" />
+      <xs:complexType name="poiSearchResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapPoiResultSet" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="batchGeocode" type="tns:batchGeocode" />
+      <xs:complexType name="batchGeocode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="addresses" type="tns:soapAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="batchGeocodeResponse" type="tns:batchGeocodeResponse" />
+      <xs:complexType name="batchGeocodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapBatchGeocodeResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapImageURLByCentre" type="tns:getMapImageURLByCentre" />
+      <xs:complexType name="getMapImageURLByCentre">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="zoom" type="xs:int" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="routes" type="tns:soapRoute" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapImageURLByCentreResponse" type="tns:getMapImageURLByCentreResponse" />
+      <xs:complexType name="getMapImageURLByCentreResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapImageURL" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocode" type="tns:geocode" />
+      <xs:complexType name="geocode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="address" type="tns:soapAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocodeResponse" type="tns:geocodeResponse" />
+      <xs:complexType name="geocodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapGeocodeResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapByCentre" type="tns:getMapByCentre" />
+      <xs:complexType name="getMapByCentre">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="zoom" type="xs:int" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="routes" type="tns:soapRoute" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapByCentreResponse" type="tns:getMapByCentreResponse" />
+      <xs:complexType name="getMapByCentreResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapArea" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="status" type="tns:status" />
+      <xs:complexType name="status">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="statusResponse" type="tns:statusResponse" />
+      <xs:complexType name="statusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocode" type="tns:reverseGeocode" />
+      <xs:complexType name="reverseGeocode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="point" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="feature" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocodeResponse" type="tns:reverseGeocodeResponse" />
+      <xs:complexType name="reverseGeocodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="version" type="tns:version" />
+      <xs:complexType name="version">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="versionResponse" type="tns:versionResponse" />
+      <xs:complexType name="versionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="rankPoints" type="tns:rankPoints" />
+      <xs:complexType name="rankPoints">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="reference" type="tns:soapPoint" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="points" type="tns:soapPoint" />
+          <xs:element name="rankType" type="xs:int" />
+          <xs:element name="tolls" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="rankPointsResponse" type="tns:rankPointsResponse" />
+      <xs:complexType name="rankPointsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapRankedPoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForPoints" type="tns:getViewportForPoints" />
+      <xs:complexType name="getViewportForPoints">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="points" type="tns:soapPoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForPointsResponse" type="tns:getViewportForPointsResponse" />
+      <xs:complexType name="getViewportForPointsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapViewport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="batchReverseGeocode" type="tns:batchReverseGeocode" />
+      <xs:complexType name="batchReverseGeocode">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="points" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="feature" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="batchReverseGeocodeResponse" type="tns:batchReverseGeocodeResponse" />
+      <xs:complexType name="batchReverseGeocodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapBatchGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocodeIntersection" type="tns:reverseGeocodeIntersection" />
+      <xs:complexType name="reverseGeocodeIntersection">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="point" type="tns:soapPoint" />
+          <xs:element name="radiusMetres" type="xs:int" />
+          <xs:element name="maxResults" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocodeIntersectionResponse" type="tns:reverseGeocodeIntersectionResponse" />
+      <xs:complexType name="reverseGeocodeIntersectionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapGeocodedAddress" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForCentre" type="tns:getViewportForCentre" />
+      <xs:complexType name="getViewportForCentre">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="zoom" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForCentreResponse" type="tns:getViewportForCentreResponse" />
+      <xs:complexType name="getViewportForCentreResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapViewport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocodeIntersection" type="tns:geocodeIntersection" />
+      <xs:complexType name="geocodeIntersection">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="primaryStreet" type="tns:soapStreet" />
+          <xs:element minOccurs="0" name="intersectingStreet" type="tns:soapStreet" />
+          <xs:element minOccurs="0" name="suburb" type="xs:string" />
+          <xs:element minOccurs="0" name="state" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocodeIntersectionResponse" type="tns:geocodeIntersectionResponse" />
+      <xs:complexType name="geocodeIntersectionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapGeocodeResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="route" type="tns:route" />
+      <xs:complexType name="route">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="wayPoints" type="tns:soapPoint" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="avoidPoints" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="routeType" type="tns:soapRouteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="routeResponse" type="tns:routeResponse" />
+      <xs:complexType name="routeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapRoute" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="mapImageURLByBounds" type="tns:mapImageURLByBounds" />
+      <xs:complexType name="mapImageURLByBounds">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="boundingBox" type="tns:soapBox" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" name="routeHandle" type="tns:soapRouteHandle" />
+          <xs:element minOccurs="0" name="forceRouteDisplay" type="xs:boolean" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="mapImageURLByBoundsResponse" type="tns:mapImageURLByBoundsResponse" />
+      <xs:complexType name="mapImageURLByBoundsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapImageURL" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapByBounds" type="tns:getMapByBounds" />
+      <xs:complexType name="getMapByBounds">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="boundingBox" type="tns:soapBox" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="routes" type="tns:soapRoute" />
+          <xs:element minOccurs="0" name="forceRouteDisplay" type="xs:boolean" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapByBoundsResponse" type="tns:getMapByBoundsResponse" />
+      <xs:complexType name="getMapByBoundsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapArea" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocodeByFeature" type="tns:reverseGeocodeByFeature" />
+      <xs:complexType name="reverseGeocodeByFeature">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="featurePoints" type="tns:soapFeaturePoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="reverseGeocodeByFeatureResponse" type="tns:reverseGeocodeByFeatureResponse" />
+      <xs:complexType name="reverseGeocodeByFeatureResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapReverseGeocodedByFeatureResult" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="mapImageURLByCentre" type="tns:mapImageURLByCentre" />
+      <xs:complexType name="mapImageURLByCentre">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="zoom" type="xs:int" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" name="routeHandle" type="tns:soapRouteHandle" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="mapImageURLByCentreResponse" type="tns:mapImageURLByCentreResponse" />
+      <xs:complexType name="mapImageURLByCentreResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapImageURL" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapImageURLByBounds" type="tns:getMapImageURLByBounds" />
+      <xs:complexType name="getMapImageURLByBounds">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="boundingBox" type="tns:soapBox" />
+          <xs:element minOccurs="0" name="layer" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="markers" type="tns:soapMarker" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="routes" type="tns:soapRoute" />
+          <xs:element minOccurs="0" name="forceRouteDisplay" type="xs:boolean" />
+          <xs:element minOccurs="0" name="imageFormat" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMapImageURLByBoundsResponse" type="tns:getMapImageURLByBoundsResponse" />
+      <xs:complexType name="getMapImageURLByBoundsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapMapImageURL" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getIcon" type="tns:getIcon" />
+      <xs:complexType name="getIcon">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="icon" type="tns:soapIcon" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getIconResponse" type="tns:getIconResponse" />
+      <xs:complexType name="getIconResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="routeHandle" type="tns:routeHandle" />
+      <xs:complexType name="routeHandle">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="wayPoints" type="tns:soapPoint" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="avoidPoints" type="tns:soapPoint" />
+          <xs:element minOccurs="0" name="routeType" type="tns:soapRouteType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="routeHandleResponse" type="tns:routeHandleResponse" />
+      <xs:complexType name="routeHandleResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapRouteHandle" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocodeById" type="tns:geocodeById" />
+      <xs:complexType name="geocodeById">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="addressIds" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="geocodeByIdResponse" type="tns:geocodeByIdResponse" />
+      <xs:complexType name="geocodeByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapPoint" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForRadius" type="tns:getViewportForRadius" />
+      <xs:complexType name="getViewportForRadius">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element name="width" type="xs:int" />
+          <xs:element name="height" type="xs:int" />
+          <xs:element minOccurs="0" name="centre" type="tns:soapPoint" />
+          <xs:element name="radius" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getViewportForRadiusResponse" type="tns:getViewportForRadiusResponse" />
+      <xs:complexType name="getViewportForRadiusResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:soapViewport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getRouteDetails" type="tns:getRouteDetails" />
+      <xs:complexType name="getRouteDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="authorisation" type="tns:soapAuth" />
+          <xs:element minOccurs="0" name="routeHandle" type="tns:soapRouteHandle" />
+          <xs:element minOccurs="0" name="routeDetailFilter" type="tns:soapRouteDetailFilter" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getRouteDetailsResponse" type="tns:getRouteDetailsResponse" />
+      <xs:complexType name="getRouteDetailsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:soapRoute" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMapByCentreResponse">
+    <wsdl:part name="result" element="tns:getMapByCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMapImageURLByCentre">
+    <wsdl:part name="parameters" element="tns:getMapImageURLByCentre" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForCentre">
+    <wsdl:part name="parameters" element="tns:getViewportForCentre" />
+  </wsdl:message>
+  <wsdl:message name="geocode">
+    <wsdl:part name="parameters" element="tns:geocode" />
+  </wsdl:message>
+  <wsdl:message name="rankPointsResponse">
+    <wsdl:part name="result" element="tns:rankPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMapImageURLByBoundsResponse">
+    <wsdl:part name="result" element="tns:getMapImageURLByBoundsResponse" />
+  </wsdl:message>
+  <wsdl:message name="status">
+    <wsdl:part name="parameters" element="tns:status" />
+  </wsdl:message>
+  <wsdl:message name="mapImageURLByCentre">
+    <wsdl:part name="parameters" element="tns:mapImageURLByCentre" />
+  </wsdl:message>
+  <wsdl:message name="mapImageURLByCentreResponse">
+    <wsdl:part name="result" element="tns:mapImageURLByCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteDetails">
+    <wsdl:part name="parameters" element="tns:getRouteDetails" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocodeResponse">
+    <wsdl:part name="result" element="tns:reverseGeocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="batchReverseGeocodeResponse">
+    <wsdl:part name="result" element="tns:batchReverseGeocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="poiSearchResponse">
+    <wsdl:part name="result" element="tns:poiSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMapImageURLByBounds">
+    <wsdl:part name="parameters" element="tns:getMapImageURLByBounds" />
+  </wsdl:message>
+  <wsdl:message name="geocodeIntersection">
+    <wsdl:part name="parameters" element="tns:geocodeIntersection" />
+  </wsdl:message>
+  <wsdl:message name="mapImageURLByBounds">
+    <wsdl:part name="parameters" element="tns:mapImageURLByBounds" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForPointsResponse">
+    <wsdl:part name="result" element="tns:getViewportForPointsResponse" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocode">
+    <wsdl:part name="parameters" element="tns:reverseGeocode" />
+  </wsdl:message>
+  <wsdl:message name="geocodeResponse">
+    <wsdl:part name="result" element="tns:geocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="mapImageURLByBoundsResponse">
+    <wsdl:part name="result" element="tns:mapImageURLByBoundsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getIconResponse">
+    <wsdl:part name="result" element="tns:getIconResponse" />
+  </wsdl:message>
+  <wsdl:message name="statusResponse">
+    <wsdl:part name="result" element="tns:statusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMapByBoundsResponse">
+    <wsdl:part name="result" element="tns:getMapByBoundsResponse" />
+  </wsdl:message>
+  <wsdl:message name="routeResponse">
+    <wsdl:part name="result" element="tns:routeResponse" />
+  </wsdl:message>
+  <wsdl:message name="geocodeByIdResponse">
+    <wsdl:part name="result" element="tns:geocodeByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="batchGeocodeResponse">
+    <wsdl:part name="result" element="tns:batchGeocodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="versionResponse">
+    <wsdl:part name="result" element="tns:versionResponse" />
+  </wsdl:message>
+  <wsdl:message name="version">
+    <wsdl:part name="parameters" element="tns:version" />
+  </wsdl:message>
+  <wsdl:message name="getIcon">
+    <wsdl:part name="parameters" element="tns:getIcon" />
+  </wsdl:message>
+  <wsdl:message name="routeHandleResponse">
+    <wsdl:part name="result" element="tns:routeHandleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getRouteDetailsResponse">
+    <wsdl:part name="result" element="tns:getRouteDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocodeIntersection">
+    <wsdl:part name="parameters" element="tns:reverseGeocodeIntersection" />
+  </wsdl:message>
+  <wsdl:message name="getMapByCentre">
+    <wsdl:part name="parameters" element="tns:getMapByCentre" />
+  </wsdl:message>
+  <wsdl:message name="batchGeocode">
+    <wsdl:part name="parameters" element="tns:batchGeocode" />
+  </wsdl:message>
+  <wsdl:message name="getMapImageURLByCentreResponse">
+    <wsdl:part name="result" element="tns:getMapImageURLByCentreResponse" />
+  </wsdl:message>
+  <wsdl:message name="route">
+    <wsdl:part name="parameters" element="tns:route" />
+  </wsdl:message>
+  <wsdl:message name="rankPoints">
+    <wsdl:part name="parameters" element="tns:rankPoints" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocodeByFeatureResponse">
+    <wsdl:part name="result" element="tns:reverseGeocodeByFeatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForRadius">
+    <wsdl:part name="parameters" element="tns:getViewportForRadius" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocodeByFeature">
+    <wsdl:part name="parameters" element="tns:reverseGeocodeByFeature" />
+  </wsdl:message>
+  <wsdl:message name="poiSearch">
+    <wsdl:part name="parameters" element="tns:poiSearch" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForPoints">
+    <wsdl:part name="parameters" element="tns:getViewportForPoints" />
+  </wsdl:message>
+  <wsdl:message name="reverseGeocodeIntersectionResponse">
+    <wsdl:part name="result" element="tns:reverseGeocodeIntersectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="routeHandle">
+    <wsdl:part name="parameters" element="tns:routeHandle" />
+  </wsdl:message>
+  <wsdl:message name="geocodeById">
+    <wsdl:part name="parameters" element="tns:geocodeById" />
+  </wsdl:message>
+  <wsdl:message name="geocodeIntersectionResponse">
+    <wsdl:part name="result" element="tns:geocodeIntersectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="getMapByBounds">
+    <wsdl:part name="parameters" element="tns:getMapByBounds" />
+  </wsdl:message>
+  <wsdl:message name="batchReverseGeocode">
+    <wsdl:part name="parameters" element="tns:batchReverseGeocode" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForRadiusResponse">
+    <wsdl:part name="result" element="tns:getViewportForRadiusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getViewportForCentreResponse">
+    <wsdl:part name="result" element="tns:getViewportForCentreResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Services">
+    <wsdl:operation name="poiSearch">
+      <wsdl:input name="poiSearch" message="tns:poiSearch" />
+      <wsdl:output name="poiSearchResponse" message="tns:poiSearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="batchGeocode">
+      <wsdl:input name="batchGeocode" message="tns:batchGeocode" />
+      <wsdl:output name="batchGeocodeResponse" message="tns:batchGeocodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMapImageURLByCentre">
+      <wsdl:input name="getMapImageURLByCentre" message="tns:getMapImageURLByCentre" />
+      <wsdl:output name="getMapImageURLByCentreResponse" message="tns:getMapImageURLByCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="geocode">
+      <wsdl:input name="geocode" message="tns:geocode" />
+      <wsdl:output name="geocodeResponse" message="tns:geocodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMapByCentre">
+      <wsdl:input name="getMapByCentre" message="tns:getMapByCentre" />
+      <wsdl:output name="getMapByCentreResponse" message="tns:getMapByCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="status">
+      <wsdl:input name="status" message="tns:status" />
+      <wsdl:output name="statusResponse" message="tns:statusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocode">
+      <wsdl:input name="reverseGeocode" message="tns:reverseGeocode" />
+      <wsdl:output name="reverseGeocodeResponse" message="tns:reverseGeocodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="version">
+      <wsdl:input name="version" message="tns:version" />
+      <wsdl:output name="versionResponse" message="tns:versionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="rankPoints">
+      <wsdl:input name="rankPoints" message="tns:rankPoints" />
+      <wsdl:output name="rankPointsResponse" message="tns:rankPointsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForPoints">
+      <wsdl:input name="getViewportForPoints" message="tns:getViewportForPoints" />
+      <wsdl:output name="getViewportForPointsResponse" message="tns:getViewportForPointsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="batchReverseGeocode">
+      <wsdl:input name="batchReverseGeocode" message="tns:batchReverseGeocode" />
+      <wsdl:output name="batchReverseGeocodeResponse" message="tns:batchReverseGeocodeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocodeIntersection">
+      <wsdl:input name="reverseGeocodeIntersection" message="tns:reverseGeocodeIntersection" />
+      <wsdl:output name="reverseGeocodeIntersectionResponse" message="tns:reverseGeocodeIntersectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForCentre">
+      <wsdl:input name="getViewportForCentre" message="tns:getViewportForCentre" />
+      <wsdl:output name="getViewportForCentreResponse" message="tns:getViewportForCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="geocodeIntersection">
+      <wsdl:input name="geocodeIntersection" message="tns:geocodeIntersection" />
+      <wsdl:output name="geocodeIntersectionResponse" message="tns:geocodeIntersectionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="route">
+      <wsdl:input name="route" message="tns:route" />
+      <wsdl:output name="routeResponse" message="tns:routeResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="mapImageURLByBounds">
+      <wsdl:input name="mapImageURLByBounds" message="tns:mapImageURLByBounds" />
+      <wsdl:output name="mapImageURLByBoundsResponse" message="tns:mapImageURLByBoundsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMapByBounds">
+      <wsdl:input name="getMapByBounds" message="tns:getMapByBounds" />
+      <wsdl:output name="getMapByBoundsResponse" message="tns:getMapByBoundsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocodeByFeature">
+      <wsdl:input name="reverseGeocodeByFeature" message="tns:reverseGeocodeByFeature" />
+      <wsdl:output name="reverseGeocodeByFeatureResponse" message="tns:reverseGeocodeByFeatureResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="mapImageURLByCentre">
+      <wsdl:input name="mapImageURLByCentre" message="tns:mapImageURLByCentre" />
+      <wsdl:output name="mapImageURLByCentreResponse" message="tns:mapImageURLByCentreResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getMapImageURLByBounds">
+      <wsdl:input name="getMapImageURLByBounds" message="tns:getMapImageURLByBounds" />
+      <wsdl:output name="getMapImageURLByBoundsResponse" message="tns:getMapImageURLByBoundsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getIcon">
+      <wsdl:input name="getIcon" message="tns:getIcon" />
+      <wsdl:output name="getIconResponse" message="tns:getIconResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="routeHandle">
+      <wsdl:input name="routeHandle" message="tns:routeHandle" />
+      <wsdl:output name="routeHandleResponse" message="tns:routeHandleResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="geocodeById">
+      <wsdl:input name="geocodeById" message="tns:geocodeById" />
+      <wsdl:output name="geocodeByIdResponse" message="tns:geocodeByIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForRadius">
+      <wsdl:input name="getViewportForRadius" message="tns:getViewportForRadius" />
+      <wsdl:output name="getViewportForRadiusResponse" message="tns:getViewportForRadiusResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getRouteDetails">
+      <wsdl:input name="getRouteDetails" message="tns:getRouteDetails" />
+      <wsdl:output name="getRouteDetailsResponse" message="tns:getRouteDetailsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapServiceSoapBinding" type="tns:Services">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="poiSearch">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="poiSearch">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="poiSearchResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchGeocode">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="batchGeocode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="batchGeocodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMapImageURLByCentre">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMapImageURLByCentre">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMapImageURLByCentreResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geocode">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="geocode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="geocodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMapByCentre">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMapByCentre">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMapByCentreResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocode">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="reverseGeocode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reverseGeocodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="status">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="status">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="statusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="version">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="version">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="versionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rankPoints">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="rankPoints">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="rankPointsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForPoints">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getViewportForPoints">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getViewportForPointsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="batchReverseGeocode">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="batchReverseGeocode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="batchReverseGeocodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForCentre">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getViewportForCentre">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getViewportForCentreResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocodeIntersection">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="reverseGeocodeIntersection">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reverseGeocodeIntersectionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geocodeIntersection">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="geocodeIntersection">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="geocodeIntersectionResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="route">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="route">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="routeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapImageURLByBounds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="mapImageURLByBounds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="mapImageURLByBoundsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMapByBounds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMapByBounds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMapByBoundsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="mapImageURLByCentre">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="mapImageURLByCentre">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="mapImageURLByCentreResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reverseGeocodeByFeature">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="reverseGeocodeByFeature">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="reverseGeocodeByFeatureResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIcon">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getIcon">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getIconResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMapImageURLByBounds">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getMapImageURLByBounds">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getMapImageURLByBoundsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="routeHandle">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="routeHandle">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="routeHandleResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="geocodeById">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="geocodeById">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="geocodeByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRouteDetails">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getRouteDetails">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getRouteDetailsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getViewportForRadius">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="getViewportForRadius">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getViewportForRadiusResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapService">
+    <wsdl:port name="SoapPort" binding="tns:SoapServiceSoapBinding">
+      <soap:address location="https://ems.whereis.com/v1/soap/ems" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
