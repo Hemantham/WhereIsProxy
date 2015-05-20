@@ -7,6 +7,7 @@ using WhereIsProxy.Images;
 using WhereIsProxy.Models.json.Maps;
 using WhereIsProxy.WhereIsSchemaReference;
 using System.Text.RegularExpressions;
+using System;
 
 namespace WhereIsProxy.MappingProviders
 {
@@ -109,10 +110,11 @@ namespace WhereIsProxy.MappingProviders
 
                 // execute the request
                 var valiadteRestResponse = JsonConvert.DeserializeObject<WhereIsStructuredValidateResponse>(client.Execute(request).Content);
-
+                Random random = new Random();
+               
                 var results = valiadteRestResponse.results.Select(r => new soapGeocodeResult
                 {
-                    accuracy = 50.0f
+                    accuracy = random.Next(500, 600) / 10
                     ,
                     geocodedAddress = new soapGeocodedAddress
                     {
