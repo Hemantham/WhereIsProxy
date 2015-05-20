@@ -3,18 +3,23 @@
 namespace WhereIsProxy.Models.json.Maps
 {
 
-    public class Street
-    {
-        public string name { get; set; }
-        public string type { get; set; }
-        public string display { get; set; }
-    }
+    //public class Street
+    //{
+    //    //public string name { get; set; }
+    //    //public string type { get; set; }
+    //    //public string display { get; set; }
+
+
+    //    public double lon { get; set; }
+    //    public double lat { get; set; }
+    //}
 
     public class Address
     {
+
         public string number { get; set; }
         public Street street { get; set; }
-        public string property { get; set; }
+             
         public string suburb { get; set; }
         public string postcode { get; set; }
         public List<string> regions { get; set; }

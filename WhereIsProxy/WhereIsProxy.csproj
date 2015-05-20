@@ -193,11 +193,17 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Images\ImageHelper.cs" />
+    <Compile Include="MappingProviders\WhereIsGeoCodeProvider.cs" />
+    <Compile Include="MappingProviders\WhereIsMapProvider.cs" />
+    <Compile Include="MappingProviders\WhereIsRouteProvider.cs" />
+    <Compile Include="MappingProviders\WhereIsViewportProvider.cs" />
     <Compile Include="Models\json\Maps\WhereIsRouteRequest.cs" />
     <Compile Include="Models\json\Maps\WhereIsRouteResponse.cs" />
     <Compile Include="MappingProviders\WhereIsMappingProvider.cs" />
     <Compile Include="Models\json\Maps\WhereIsGeocodeResponse.cs" />
     <Compile Include="Models\json\Maps\WhereIsMapRequest.cs" />
+    <Compile Include="Models\json\Maps\WhereIsStructuredValidateRequest.cs" />
+    <Compile Include="Models\json\Maps\WhereIsStructuredValidateResponse.cs" />
     <Compile Include="Models\json\Maps\WhereIsUnstructuredGeoCodeRequest.cs" />
     <Compile Include="Models\json\Maps\WhereIsViewportResponse.cs" />
     <Compile Include="Models\SOAPEnvelope.cs" />
