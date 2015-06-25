@@ -49,7 +49,7 @@ namespace WhereIsProxy.MappingProviders
             {
                 mode = "VEHICLE",
                 method = "FASTEST",
-                tolls = "false",
+                tolls = input.routeType.tolls.ToString(),
                 imageFormat = "PNG",
                 waypoints = input.wayPoints.Select(w => new Waypoint
                 {
