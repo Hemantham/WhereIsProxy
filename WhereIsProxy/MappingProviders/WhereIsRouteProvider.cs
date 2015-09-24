@@ -27,10 +27,6 @@ namespace WhereIsProxy.MappingProviders
         /// <summary>
         /// not exactly correct as not taking in to considerations the earths curvature
         /// </summary>
-        /// <param name="bottom"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <param name="top"></param>
         /// <returns></returns>
         private Point getCenter(Bounds bounds)
         {

@@ -6,6 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Devel\webClient\WhereIsPublish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
@@ -210,7 +211,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/25/2015 10:19:30</publishTime>
     </File>
     <File Include="bin/WhereIsProxy.dll">
-      <publishTime>04/23/2015 15:51:21</publishTime>
+      <publishTime>09/24/2015 16:30:46</publishTime>
     </File>
     <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
       <publishTime>03/25/2015 10:19:28</publishTime>
@@ -657,7 +658,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/25/2015 10:19:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/23/2015 15:51:21</publishTime>
+      <publishTime>07/23/2015 09:46:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

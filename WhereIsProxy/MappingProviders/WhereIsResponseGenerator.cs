@@ -29,6 +29,7 @@ namespace WhereIsProxy.MappingProviders
 
             nameSpaces.Add("ns1", "http://ems.whereis.com/");
 
+
             XmlElementAttribute myElementAttribute = new XmlElementAttribute();
 
             myElementAttribute.ElementName = valuetype.Name + "Response";
